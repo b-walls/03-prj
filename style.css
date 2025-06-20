@@ -1,0 +1,196 @@
+body {
+  margin: 0;
+  padding: 0;
+  /* Use Inter font for body text */
+  font-family: 'Inter', Arial, sans-serif;
+  background-color: #F5F5F5; 
+  display: block;
+}
+
+/* Style for the header section */
+header {
+  background: linear-gradient(to right, #00C7FD, #0068B5);
+  padding: 40px 0;
+  text-align: center;
+}
+
+/* Style for the logo image */
+header img {
+  width: 180px; 
+  margin-bottom: 10px;
+}
+
+/* Main heading style */
+header h1 {
+  color: #FFFFFF; /* Dark blue text */
+  margin-top: 25px;
+  font-size: 2.5em;
+  /* Use Montserrat font for headings */
+  font-family: 'Montserrat', Arial, sans-serif;
+  text-transform: uppercase; /* Make text all caps */
+  letter-spacing: 2px; /* Add space between letters */
+}
+
+/* Subheading/description style */
+header p {
+  color: #FFFFFF; /* Dark blue text */
+  font-size: 1.1em;
+  margin: 0 auto;
+  max-width: 400px;
+}
+
+/* Card styles for the timeline section */
+.card {
+  /* Add a white background and a simple border */
+  background-color: #FFFFFF;
+  border: 1px solid #CCCCCC;
+  border-radius: 8px;
+  padding: 16px;
+  margin: 20px auto;
+  width: 90%;
+  max-width: 300px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  position: relative; /* Needed for the hover effect */
+  transition: box-shadow 0.3s;
+  overflow: hidden; /* Make sure nothing goes outside the card */
+}
+
+.card img {
+  width: 100%;      /* Image fills the card width */
+  height: auto;     /* Image keeps its shape */
+  display: block;   /* Removes extra space below the image */
+  border-radius: 4px;
+}
+
+/* Hide the description by default and position it over the card */
+.card-desc {
+  display: none; /* Hide the description at first */
+  position: absolute; /* Place it over the card */
+  top: 0; /* Make sure it starts at the very top */
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 103, 181, 0.9); /* Slightly see-through blue */
+  color: #FFFFFF; /* White text for good contrast */
+  padding: 20px;
+  border-radius: 4px;
+  box-sizing: border-box;
+  /* Center the text vertically and horizontally */
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 1em;
+  z-index: 1; /* Make sure it covers the card */
+  /* Remove any margin or border that could push it down */
+  margin: 0;
+  border: none;
+}
+
+/* Make the card stand out a bit when hovered */
+.card:hover {
+  /* Make the card a little bigger */
+  transform: scale(1.05); /* Grows to 105% of its size */
+  /* Add a light blue glow using box-shadow */
+  box-shadow: 0 0 6px 2px #0068B5; /* Light blue glow */
+  /* Smooth transition for the effect */
+  transition: transform 0.2s, box-shadow 0.2s;
+  border: 1px solid #0068B5; /* Optional: Add a border on hover */
+}
+
+/* Add a smooth transition for all cards */
+.card {
+  transition: box-shadow 0.3s, transform 0.3s;
+}
+
+.card h2 {
+  font-size: 1.5em; /* Slightly larger heading */
+  font-family: 'Montserrat', Arial, sans-serif;
+  margin: 0 0 10px; /* Space below the heading */
+  color: #0068B5; /* Dark blue text */
+}
+
+.card h3 {
+  font-size: 1.25em; /* Slightly larger heading */
+  font-family: 'Inter', Arial, sans-serif;
+  margin: 0 0 10px; /* Space below the heading */
+  color: #222222; /* Dark blue text */
+}
+
+
+/* Show the description only when hovering over the card */
+.card:hover .card-desc {
+  display: flex; /* Show and center the description */
+}
+
+/* Timeline slider styles */
+.timeline-slider {
+  display: flex; /* Arrange cards in a row */
+  overflow-x: auto; /* Enable horizontal scrolling */
+  gap: 20px; /* Space between cards */
+  scroll-snap-type: x mandatory; /* Snap horizontally */
+  padding: 30px 0px; /* Add space on left and right */
+  /* Optional: Hide scrollbar for a cleaner look */
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;     /* Firefox */
+  margin-left: 15%;
+  margin-right: 15%;
+}
+.timeline-slider::-webkit-scrollbar {
+  display: none;             /* Chrome, Safari, Opera */
+}
+
+/* Each card will snap to the start of the scroll area */
+.timeline-slider .card {
+  scroll-snap-align: start;
+  flex: 0 0 300px; /* Fixed width for each card */
+}
+
+/* Responsive: Stack cards vertically on small screens */
+@media (max-width: 700px) {
+  header h1 {
+    font-size: 1.75em; /* Smaller heading on small screens */
+  }
+
+  header p {
+    font-size: 1em; /* Smaller subheading on small screens */
+  }
+
+  .timeline-slider {
+    flex-direction: column; /* Stack cards vertically */
+    overflow-x: hidden;
+    overflow-y: auto; /* Enable vertical scrolling */
+    scroll-snap-type: y mandatory; /* Snap vertically */
+    gap: 20px;
+    height: 80vh; /* Limit height for vertical scroll */
+    padding: 20px 10px; /* Less space on small screens */
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  .timeline-slider .card {
+    flex: 0 0 auto;
+    scroll-snap-align: start;
+    width: 90%;
+    max-width: 350px;
+    margin: 0 auto;
+  }
+}
+
+/* Style for the footer section */
+footer {
+  background: linear-gradient(to right, #00C7FD, #0068B5);
+  padding: 20px 0;                /* Space above and below the text */
+  text-align: center;             /* Center the text */
+  margin-top: 0;               /* Space above the footer */
+  max-height: 100%;
+}
+
+/* Style for the footer text */
+footer p {
+  color: #FFFFFF;                 /* White text */
+  font-size: 1.1em;               /* Slightly larger text */
+  margin: 0;                      /* Remove default margin */
+  font-family: 'Inter', Arial, sans-serif; /* Use the body font */
+}
+
