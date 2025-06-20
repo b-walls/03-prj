@@ -1,39 +1,34 @@
 body {
   margin: 0;
   padding: 0;
-  /* Use Inter font for body text */
   font-family: 'Inter', Arial, sans-serif;
   background-color: #F5F5F5; 
   display: block;
 }
 
-/* Style for the header section */
+/* Header section */
 header {
   background: linear-gradient(to right, #00C7FD, #0068B5);
-  padding: 40px 0;
+  padding-block: 40px;
   text-align: center;
 }
 
-/* Style for the logo image */
 header img {
   width: 180px; 
-  margin-bottom: 10px;
+  margin-block-end: 10px;
 }
 
-/* Main heading style */
 header h1 {
-  color: #FFFFFF; /* Dark blue text */
-  margin-top: 25px;
+  color: #FFFFFF;
+  margin-block-start: 25px;
   font-size: 2.5em;
-  /* Use Montserrat font for headings */
   font-family: 'Montserrat', Arial, sans-serif;
-  text-transform: uppercase; /* Make text all caps */
-  letter-spacing: 2px; /* Add space between letters */
+  text-transform: uppercase;
+  letter-spacing: 2px;
 }
 
-/* Subheading/description style */
 header p {
-  color: #FFFFFF; /* Dark blue text */
+  color: #FFFFFF;
   font-size: 1.1em;
   margin: 0 auto;
   max-width: 400px;
@@ -41,156 +36,195 @@ header p {
 
 /* Card styles for the timeline section */
 .card {
-  /* Add a white background and a simple border */
   background-color: #FFFFFF;
   border: 1px solid #CCCCCC;
-  border-radius: 8px;
+  border-radius: 2px;
   padding: 16px;
-  margin: 20px auto;
+  margin-block: 20px;
+  margin-inline: auto;
   width: 90%;
   max-width: 300px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-  position: relative; /* Needed for the hover effect */
+  position: relative;
   transition: box-shadow 0.3s;
-  overflow: hidden; /* Make sure nothing goes outside the card */
+  overflow: hidden;
 }
 
 .card img {
-  width: 100%;      /* Image fills the card width */
-  height: auto;     /* Image keeps its shape */
-  display: block;   /* Removes extra space below the image */
+  width: 100%;
+  height: auto;
+  display: block;
   border-radius: 4px;
 }
 
 /* Hide the description by default and position it over the card */
 .card-desc {
-  display: none; /* Hide the description at first */
-  position: absolute; /* Place it over the card */
-  top: 0; /* Make sure it starts at the very top */
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 103, 181, 0.9); /* Slightly see-through blue */
-  color: #FFFFFF; /* White text for good contrast */
+  display: none;
+  position: absolute;
+  inset: 0; /* shorthand for top:0; right:0; bottom:0; left:0; */
+  background: rgba(0, 103, 181, 0.9);
+  color: #FFFFFF;
   padding: 20px;
-  border-radius: 4px;
+  border-radius: 2px;
   box-sizing: border-box;
-  /* Center the text vertically and horizontally */
   align-items: center;
   justify-content: center;
   text-align: center;
   font-size: 1em;
-  z-index: 1; /* Make sure it covers the card */
-  /* Remove any margin or border that could push it down */
+  z-index: 1;
   margin: 0;
   border: none;
 }
 
 /* Make the card stand out a bit when hovered */
 .card:hover {
-  /* Make the card a little bigger */
-  transform: scale(1.05); /* Grows to 105% of its size */
-  /* Add a light blue glow using box-shadow */
-  box-shadow: 0 0 6px 2px #0068B5; /* Light blue glow */
-  /* Smooth transition for the effect */
+  transform: scale(1.02);
   transition: transform 0.2s, box-shadow 0.2s;
-  border: 1px solid #0068B5; /* Optional: Add a border on hover */
+  border: 1px solid #0068B5;
 }
 
-/* Add a smooth transition for all cards */
 .card {
   transition: box-shadow 0.3s, transform 0.3s;
 }
 
 .card h2 {
-  font-size: 1.5em; /* Slightly larger heading */
+  font-size: 1.5em;
   font-family: 'Montserrat', Arial, sans-serif;
-  margin: 0 0 10px; /* Space below the heading */
-  color: #0068B5; /* Dark blue text */
+  margin-block-end: 10px;
+  color: #0068B5;
 }
 
 .card h3 {
-  font-size: 1.25em; /* Slightly larger heading */
+  font-size: 1.25em;
   font-family: 'Inter', Arial, sans-serif;
-  margin: 0 0 10px; /* Space below the heading */
-  color: #222222; /* Dark blue text */
+  margin-block-end: 10px;
+  color: #222222;
 }
-
 
 /* Show the description only when hovering over the card */
 .card:hover .card-desc {
-  display: flex; /* Show and center the description */
+  display: flex;
 }
 
 /* Timeline slider styles */
 .timeline-slider {
-  display: flex; /* Arrange cards in a row */
-  overflow-x: auto; /* Enable horizontal scrolling */
-  gap: 20px; /* Space between cards */
-  scroll-snap-type: x mandatory; /* Snap horizontally */
-  padding: 30px 0px; /* Add space on left and right */
-  /* Optional: Hide scrollbar for a cleaner look */
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;     /* Firefox */
-  margin-left: 15%;
-  margin-right: 15%;
-}
-.timeline-slider::-webkit-scrollbar {
-  display: none;             /* Chrome, Safari, Opera */
+  display: flex;
+  overflow-x: scroll;
+  gap: 20px;
+  scroll-snap-type: x mandatory;
+  padding-block: 30px;
+  margin-inline: 8%;
 }
 
 /* Each card will snap to the start of the scroll area */
 .timeline-slider .card {
   scroll-snap-align: start;
-  flex: 0 0 300px; /* Fixed width for each card */
+  flex: 0 0 300px;
 }
 
 /* Responsive: Stack cards vertically on small screens */
 @media (max-width: 700px) {
   header h1 {
-    font-size: 1.75em; /* Smaller heading on small screens */
+    font-size: 1.75em;
   }
 
   header p {
-    font-size: 1em; /* Smaller subheading on small screens */
+    font-size: 1em;
   }
 
   .timeline-slider {
-    flex-direction: column; /* Stack cards vertically */
+    flex-direction: column;
     overflow-x: hidden;
-    overflow-y: auto; /* Enable vertical scrolling */
-    scroll-snap-type: y mandatory; /* Snap vertically */
+    overflow-y: auto;
+    scroll-snap-type: y mandatory;
     gap: 20px;
-    height: 80vh; /* Limit height for vertical scroll */
-    padding: 20px 10px; /* Less space on small screens */
-    margin-left: 5%;
-    margin-right: 5%;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    height: 80vh;
+    padding-block: 20px 10px;
+    margin-inline: 5%;
+    margin-block: 10px;
   }
   .timeline-slider .card {
     flex: 0 0 auto;
     scroll-snap-align: start;
     width: 90%;
     max-width: 350px;
-    margin: 0 auto;
+    margin-inline: auto;
   }
 }
 
-/* Style for the footer section */
+/* Footer section */
 footer {
   background: linear-gradient(to right, #00C7FD, #0068B5);
-  padding: 20px 0;                /* Space above and below the text */
-  text-align: center;             /* Center the text */
-  margin-top: 0;               /* Space above the footer */
+  padding-block: 20px;
+  text-align: center;
+  margin-block-start: 0;
   max-height: 100%;
+  color: #FFFFFF;
 }
 
-/* Style for the footer text */
 footer p {
-  color: #FFFFFF;                 /* White text */
-  font-size: 1.1em;               /* Slightly larger text */
-  margin: 0;                      /* Remove default margin */
-  font-family: 'Inter', Arial, sans-serif; /* Use the body font */
+  color: #FFFFFF;
+  font-size: 1.1em;
+  margin: 0;
+  font-family: 'Inter', Arial, sans-serif;
 }
 
+footer a {
+  color: #FFFFFF;
+}
+
+/* Info columns */
+#info .col-md-4 {
+  margin-block: 5%;
+  text-align: start; /* Logical alignment for LTR/RTL */
+}
+
+#info .col-md-4 h2 {
+  font-family: 'Montserrat', Arial, sans-serif;
+  color: #0068B5;
+}
+
+#info .col-md-4 p {
+  font-family: 'Inter', Arial, sans-serif;
+}
+
+#info .col-md-4 button {
+  border-radius: 4px;
+  border: 1px solid #0068B5;
+  color: #0068B5;
+  padding: 8px;
+  background-color: transparent;
+  transition: background-color 0.2s, color 0.2s ease-in;
+}
+
+#info .col-md-4 button:hover {
+  background-color: #0068B5;
+  color: #fff;
+}
+
+.footer-bar {
+  background: linear-gradient(to right, #00C7FD, #0068B5);
+  color: #FFFFFF;
+  text-align: center;
+  padding: 10px;
+  font-size: 1.3em;
+  font-family: 'Inter', Arial, sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px; /* Adjust as needed for your design */
+}
+
+.footer-bar p {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.form-label {
+  font-weight: bold;
+}
+
+/* Add to your style.css */
+.footer-links a {
+  margin-inline-start: 16px; /* Adds space to the left of each link */
+}
